@@ -1,30 +1,29 @@
-import { Tag, Space } from 'antd';
-import React from 'react';
-import { useModel } from 'umi';
-import Avatar from './AvatarDropdown';
-import HeaderSearch from '../HeaderSearch';
-import styles from './index.less';
+import { Tag, Space } from 'antd'
+import React from 'react'
+import { useModel } from 'umi'
+import Avatar from './AvatarDropdown'
+import HeaderSearch from '../HeaderSearch'
+import styles from './index.less'
 
-export type SiderTheme = 'light' | 'dark';
 
 const ENVTagColor = {
   dev: 'orange',
   test: 'green',
   pre: '#87d068',
-};
+}
 
-const GlobalHeaderRight: React.FC<{}> = () => {
-  const { initialState } = useModel('@@initialState');
+const GlobalHeaderRight = () => {
+  const { initialState } = useModel('@@initialState')
 
   if (!initialState || !initialState.settings) {
-    return null;
+    return null
   }
 
-  const { navTheme, layout } = initialState.settings;
-  let className = styles.right;
+  const { navTheme, layout } = initialState.settings
+  let className = styles.right
 
   if ((navTheme === 'dark' && layout === 'top') || layout === 'mix') {
-    className = `${styles.right}  ${styles.dark}`;
+    className = `${styles.right}  ${styles.dark}`
   }
   return (
     <Space className={className}>
@@ -47,7 +46,7 @@ const GlobalHeaderRight: React.FC<{}> = () => {
           },
         ]}
         onSearch={(value) => {
-          console.log('input', value);
+          console.log('input', value)
         }}
       /> */}
 
@@ -58,6 +57,6 @@ const GlobalHeaderRight: React.FC<{}> = () => {
         </span>
       )}
     </Space>
-  );
-};
-export default GlobalHeaderRight;
+  )
+}
+export default GlobalHeaderRight

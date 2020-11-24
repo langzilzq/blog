@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-const waitTime = (time: number = 100) => {
+const waitTime = (time = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
@@ -8,7 +8,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-async function getFakeCaptcha(req: Request, res: Response) {
+async function getFakeCaptcha(req, res) {
   await waitTime(2000);
   return res.json('captcha-xxx');
 }
@@ -29,7 +29,7 @@ const getAccess = () => {
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 export default {
   // 支持值为 Object 和 Array
-  'GET /api/currentUser': (req: Request, res: Response) => {
+  'GET /api/currentUser': (req, res) => {
     // if (!getAccess()) {
     //   res.status(401).send({
     //     data: {
@@ -114,7 +114,7 @@ export default {
       address: 'Sidney No. 1 Lake Park',
     },
   ],
-  'POST /api/login/account': async (req: Request, res: Response) => {
+  'POST /api/login/account': async (req, res) => {
     const { password, username, type } = req.body;
     await waitTime(2000);
     if (password === 'ant.design' && username === 'admin') {
@@ -152,14 +152,14 @@ export default {
     });
     access = 'guest';
   },
-  'GET /api/login/outLogin': (req: Request, res: Response) => {
+  'GET /api/login/outLogin': (req, res) => {
     access = '';
     res.send({ data: {}, success: true });
   },
-  'POST /api/register': (req: Request, res: Response) => {
+  'POST /api/register': (req, res) => {
     res.send({ status: 'ok', currentAuthority: 'user', success: true });
   },
-  'GET /api/500': (req: Request, res: Response) => {
+  'GET /api/500': (req, res) => {
     res.status(500).send({
       timestamp: 1513932555104,
       status: 500,
@@ -168,7 +168,7 @@ export default {
       path: '/base/category/list',
     });
   },
-  'GET /api/404': (req: Request, res: Response) => {
+  'GET /api/404': (req, res) => {
     res.status(404).send({
       timestamp: 1513932643431,
       status: 404,
@@ -177,7 +177,7 @@ export default {
       path: '/base/category/list/2121212',
     });
   },
-  'GET /api/403': (req: Request, res: Response) => {
+  'GET /api/403': (req, res) => {
     res.status(403).send({
       timestamp: 1513932555104,
       status: 403,
@@ -186,7 +186,7 @@ export default {
       path: '/base/category/list',
     });
   },
-  'GET /api/401': (req: Request, res: Response) => {
+  'GET /api/401': (req, res) => {
     res.status(401).send({
       timestamp: 1513932555104,
       status: 401,

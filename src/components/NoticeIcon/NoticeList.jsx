@@ -1,26 +1,11 @@
-import { Avatar, List } from 'antd';
+import { Avatar, List } from 'antd'
 
-import React from 'react';
-import classNames from 'classnames';
-import styles from './NoticeList.less';
+import React from 'react'
+import classNames from 'classnames'
+import styles from './NoticeList.less'
 
-export interface NoticeIconTabProps {
-  count?: number;
-  name?: string;
-  showClear?: boolean;
-  showViewMore?: boolean;
-  style?: React.CSSProperties;
-  title: string;
-  tabKey: string;
-  onClick?: (item: API.NoticeIconData) => void;
-  onClear?: () => void;
-  emptyText?: string;
-  clearText?: string;
-  viewMoreText?: string;
-  list: API.NoticeIconData[];
-  onViewMore?: (e: any) => void;
-}
-const NoticeList: React.FC<NoticeIconTabProps> = ({
+
+const NoticeList = ({
   list = [],
   onClick,
   onClear,
@@ -41,25 +26,25 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
         />
         <div>{emptyText}</div>
       </div>
-    );
+    )
   }
   return (
     <div>
-      <List<API.NoticeIconData>
+      <List
         className={styles.list}
         dataSource={list}
         renderItem={(item, i) => {
           const itemCls = classNames(styles.item, {
             [styles.read]: item.read,
-          });
+          })
           // eslint-disable-next-line no-nested-ternary
           const leftIcon = item.avatar ? (
             typeof item.avatar === 'string' ? (
               <Avatar className={styles.avatar} src={item.avatar} />
             ) : (
-              <span className={styles.iconElement}>{item.avatar}</span>
-            )
-          ) : null;
+                <span className={styles.iconElement}>{item.avatar}</span>
+              )
+          ) : null
 
           return (
             <List.Item
@@ -84,7 +69,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
                 }
               />
             </List.Item>
-          );
+          )
         }}
       />
       <div className={styles.bottomBar}>
@@ -97,7 +82,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
           <div
             onClick={(e) => {
               if (onViewMore) {
-                onViewMore(e);
+                onViewMore(e)
               }
             }}
           >
@@ -106,7 +91,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
         ) : null}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NoticeList;
+export default NoticeList

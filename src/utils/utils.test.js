@@ -2,13 +2,13 @@ import { isUrl } from './utils';
 
 describe('isUrl tests', () => {
   it('should return false for invalid and corner case inputs', () => {
-    expect(isUrl([] as any)).toBeFalsy();
-    expect(isUrl({} as any)).toBeFalsy();
-    expect(isUrl(false as any)).toBeFalsy();
-    expect(isUrl(true as any)).toBeFalsy();
-    expect(isUrl(NaN as any)).toBeFalsy();
-    expect(isUrl(null as any)).toBeFalsy();
-    expect(isUrl(undefined as any)).toBeFalsy();
+    expect(isUrl([])).toBeFalsy();
+    expect(isUrl({})).toBeFalsy();
+    expect(isUrl(false)).toBeFalsy();
+    expect(isUrl(true)).toBeFalsy();
+    expect(isUrl(NaN)).toBeFalsy();
+    expect(isUrl(null)).toBeFalsy();
+    expect(isUrl(undefined)).toBeFalsy();
     expect(isUrl('')).toBeFalsy();
   });
 
