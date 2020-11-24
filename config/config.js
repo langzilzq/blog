@@ -29,13 +29,13 @@ export default defineConfig({
   dynamicImport: {
     loading: '@ant-design/pro-layout/es/PageLoading',
   },
-  ssr: {},
+  // ssr: {
+  //   // devServerRender: false,
+  // },
   targets: {
     ie: 11,
   },
-  // umi routes: https://umijs.org/docs/routing
   routes,
-  // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     'primary-color': defaultSettings.primaryColor,
   },
