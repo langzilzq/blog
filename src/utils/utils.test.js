@@ -11,7 +11,6 @@ describe('isUrl tests', () => {
     expect(isUrl(undefined)).toBeFalsy();
     expect(isUrl('')).toBeFalsy();
   });
-
   it('should return false for invalid URLs', () => {
     expect(isUrl('foo')).toBeFalsy();
     expect(isUrl('bar')).toBeFalsy();
@@ -19,7 +18,6 @@ describe('isUrl tests', () => {
     expect(isUrl('http:/example.com/')).toBeFalsy();
     expect(isUrl('ttp://example.com/')).toBeFalsy();
   });
-
   it('should return true for valid URLs', () => {
     expect(isUrl('http://example.com/')).toBeTruthy();
     expect(isUrl('https://example.com/')).toBeTruthy();
